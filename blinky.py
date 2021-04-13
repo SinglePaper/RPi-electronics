@@ -14,5 +14,8 @@ for x in range(0,30):
     GPIO.output(11,True)
     time.sleep(.1)
     GPIO.output(11,False)
+    GPIO.output(8,True)
+    time.sleep(.1)
+    GPIO.output(8,False)
 print("Done")
 GPIO.cleanup()
