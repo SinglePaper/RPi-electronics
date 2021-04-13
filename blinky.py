@@ -4,7 +4,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(7,GPIO.OUT)
 GPIO.setup(8,GPIO.OUT)
 GPIO.setup(11,GPIO.OUT)
-for x in range(0,30):
+for x in range(0,50):
     GPIO.output(7,True)
     time.sleep(.1)
     GPIO.output(7,False)
