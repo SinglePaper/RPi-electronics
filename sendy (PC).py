@@ -1,6 +1,11 @@
+"""
+A simple Python script to send messages to a sever over Bluetooth
+using PyBluez (with Python 2).
+"""
+
 import socket
 
-serverMACAddress = 'B8:27:EB:85:DF:48' # MAC address of RPi
+serverMACAddress = 'B8:27:EB:85:DF:48'
 port = 3
 s = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_STREAM, socket.BTPROTO_RFCOMM)
 s.connect((serverMACAddress,port))
