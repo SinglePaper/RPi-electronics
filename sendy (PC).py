@@ -1,8 +1,3 @@
-"""
-A simple Python script to send messages to a sever over Bluetooth
-using PyBluez (with Python 2).
-"""
-
 import socket
 
 serverMACAddress = 'B8:27:EB:85:DF:48'
