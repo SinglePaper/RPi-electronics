@@ -1,20 +1,15 @@
 import socket
-
-hostMACAddress = '00:1A:7D:DA:71:15' # The MAC address of a Bluetooth adapter on the server. The server might have multiple Bluetooth adapters.
-port = 3 # 3 is an arbitrary choice. However, it must match the port used by the client.
-backlog = 1
-size = 1024
-s = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_STREAM, socket.BTPROTO_RFCOMM)
-s.bind((hostMACAddress,port))
-s.listen(backlog)
-try:
-    client, address = s.accept()
-    while 1:
-        data = client.recv(size)
-        if data:
-            print(data)
-            client.send(data)
-except:	
-    print("Closing socket")	
-    client.close()
-    s.close()
+serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+serv.bind(('192.168.2.18', 8080))
+serv.listen(5)
+while True:
+    conn, addr = serv.accept()
+    from_client = ''
+    while True:
+        data = conn.recv(4096)
+        if not data: break
+        from_client += data
+        print('from_client')
+        conn.send("I am SERVER<br>")
+    conn.close()
+    print('client disconnected')
