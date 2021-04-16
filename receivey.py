@@ -24,7 +24,7 @@ while True:
             data = clientsocket.recv(1024)
             if not data:
                 break
-            print(f"{address[0]}: " + repr(data))
+            print(f"{address[0]}: " + data.decode("utf-8"))
         else:
             continue
     except:
