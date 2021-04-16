@@ -1,15 +1,11 @@
 import socket
-serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-serv.bind(('192.168.2.18', 8080))
-serv.listen(5)
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind(("127.0.0.1", 1234))
+s.listen(5)
+
 while True:
-    conn, addr = serv.accept()
-    from_client = ''
-    while True:
-        data = conn.recv(4096)
-        if not data: break
-        from_client += data
-        print('from_client')
-        conn.send("I am SERVER<br>")
-    conn.close()
-    print('client disconnected')
+    print("Searching for a connection...")
+    clientsocket, address = s.accept()
+    print(f"Connection from {address} has been established!")
+    clientsocket.send(bytes("Connected to the server successfully", "utf-8"))

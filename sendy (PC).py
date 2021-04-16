@@ -1,7 +1,7 @@
 import socket
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.connect('192.168.2.64', 8080)
-sock.send("This is a test.")
-sock.recv(4096)
-sock.close()
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect(("127.0.0.1", 1234))
+
+msg = s.recv(1024)
+print(msg.decode("utf-8"))
