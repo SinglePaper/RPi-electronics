@@ -25,6 +25,8 @@ while True:
             if not data:
                 break
             print(f"{address[0]}: " + repr(data))
+        else:
+            continue
     except:
         GPIO.cleanup()
         if 'clientsocket' in locals():
