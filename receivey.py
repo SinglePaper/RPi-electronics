@@ -23,7 +23,7 @@ while True:
             data = clientsocket.recv(1).decode("utf-8")
             if not data:
                 break
-            print(f"{address[0]}: " + data.decode("utf-8"))
+            print(f"{address[0]}: " + data)
             if clientsocket.recv(1) == "f":
                 GPIO.output(7, True)
                 GPIO.output(11, False)
