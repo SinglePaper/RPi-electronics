@@ -26,7 +26,8 @@ while True:
                 break
             print(f"{address[0]}: " + repr(data))
     except:
-        clientsocket.close()
+        if clientsocket:
+            clientsocket.close()
         GPIO.cleanup()
         break
 
