@@ -24,22 +24,22 @@ while True:
             if not data:
                 break
             print(f"{address[0]}: " + data)
-            if clientsocket.recv(1) == "f":
+            if data == "f":
                 GPIO.output(7, True)
                 GPIO.output(11, False)
                 GPIO.output(13, True)
                 GPIO.output(15, False)
-            elif clientsocket.recv(1) == "b":
+            elif data == "b":
                 GPIO.output(7, False)
                 GPIO.output(11, True)
                 GPIO.output(13, False)
                 GPIO.output(15, True)
-            elif clientsocket.recv(1) == "l":
+            elif data == "l":
                 GPIO.output(7, False)
                 GPIO.output(11, False)
                 GPIO.output(13, True)
                 GPIO.output(15, False)
-            elif clientsocket.recv(1) == "r":
+            elif data == "r":
                 GPIO.output(7, True)
                 GPIO.output(11, False)
                 GPIO.output(13, False)
