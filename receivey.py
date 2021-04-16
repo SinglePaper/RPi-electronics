@@ -1,4 +1,4 @@
-# Raspberry Pi code (Server)
+### Raspberry Pi code (Server)
 
 import socket
 import RPi.GPIO as GPIO
@@ -19,7 +19,6 @@ while True:
         print("Searching for a connection...")
         clientsocket, address = s.accept()
         print(f"Successful connection with address {address[0]}.")
-        clientsocket.send(bytes("Connected to the server successfully.", "utf-8"))
         while True:
             data = clientsocket.recv(1024)
             if not data:
@@ -29,6 +28,7 @@ while True:
             continue
     except:
         GPIO.cleanup()
+        s.close()
         if 'clientsocket' in locals():
             clientsocket.close()
         break
