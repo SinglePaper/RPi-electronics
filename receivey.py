@@ -15,7 +15,7 @@ s.bind(("192.168.2.64", 5432))
 s.listen(5)
 
 while True:
-    #try:
+    try:
         print("Searching for a connection...")
         clientsocket, address = s.accept()
         print(f"Successful connection with address {address[0]}.")
@@ -51,9 +51,9 @@ while True:
                 GPIO.output(15, False)
         else:
             continue
-    #except:
-    #    GPIO.cleanup()
-    #    s.close()
-    #    if 'clientsocket' in locals():
-    #        clientsocket.close()
-    #    break
+    except:
+        GPIO.cleanup()
+        s.close()
+        if 'clientsocket' in locals():
+            clientsocket.close()
+        break
