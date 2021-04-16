@@ -1,7 +1,7 @@
 import socket
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind(("192.168.2.64", 1234))
+s.bind(("192.168.2.18", 1234))
 s.listen(5)
 
 while True:
