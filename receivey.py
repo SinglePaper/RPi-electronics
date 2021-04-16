@@ -18,10 +18,17 @@ while True:
     try:
         print("Searching for a connection...")
         clientsocket, address = s.accept()
-        print(f"{address[0]}: ")
-        clientsocket.send(bytes("Connected to the server successfully", "utf-8"))
+        print(f"Successful connection with address {address[0]}.")
+        clientsocket.send(bytes("Connected to the server successfully.", "utf-8"))
+        while True:
+            data = clientsocket.recv(1024)
+            if not data:
+                break
+            print(f"{address[0]}: " + repr(data))
     except:
         clientsocket.close()
+        GPIO.cleanup()
         break
 
 clientsocket.close()
+GPIO.cleanup()
