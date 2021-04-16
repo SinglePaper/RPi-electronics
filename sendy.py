@@ -114,7 +114,7 @@ def main():
         #try:
             data = controller.read()
             s.send(get_direction(data[:2]).encode("utf-8"))
-            sleep(.05)
+            sleep(0.01)
         #except:
     #s.close()
 

@@ -20,7 +20,7 @@ while True:
         clientsocket, address = s.accept()
         print(f"Successful connection with address {address[0]}.")
         while True:
-            data = clientsocket.recv(1)
+            data = clientsocket.recv(1).decode("utf-8")
             if not data:
                 break
             print(f"{address[0]}: " + data.decode("utf-8"))
