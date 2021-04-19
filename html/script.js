@@ -1,9 +1,9 @@
 direction = 0
 
-up_button = document.querySelector("#up");
-down_button = document.querySelector("#down");
-left_button = document.querySelector("#left");
-right_button = document.querySelector("#right");
+up_button = document.getElementById("up");
+down_button = document.getElementById("down");
+left_button = document.getElementById("left");
+right_button = document.getElementById("right");
 
 // Events for up button
 up_button.addEventListener("mousedown", upPress, false);
