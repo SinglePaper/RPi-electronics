@@ -65,7 +65,6 @@ function resetPress(e) {
 
 function updateData() {
     sendDirection()
-    process.stdout.write(direction + '\n');
 }
 
 function sendDirection() {

@@ -1,16 +1,18 @@
 ### Raspberry Pi code (Server)
 
-import socket
-import RPi.GPIO as GPIO
-import time
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7,GPIO.OUT)  # Left motor forward
-GPIO.setup(11,GPIO.OUT)  # Left motor backward
-GPIO.setup(13,GPIO.OUT)  # Right motor forward
-GPIO.setup(15,GPIO.OUT)  # Right motor backward
+## Using Wifi connection
+# import socket
+# import RPi.GPIO as GPIO
+# import time
 
-## Wifi connection
+# GPIO.setmode(GPIO.BOARD)
+# GPIO.setup(7,GPIO.OUT)  # Left motor forward
+# GPIO.setup(11,GPIO.OUT)  # Left motor backward
+# GPIO.setup(13,GPIO.OUT)  # Right motor forward
+# GPIO.setup(15,GPIO.OUT)  # Right motor backward
+
+
 # s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # s.bind(("192.168.2.64", 5432))
 # s.listen(5)
@@ -61,18 +63,23 @@ GPIO.setup(15,GPIO.OUT)  # Right motor backward
 
 
 
-## JS Website connection
-import sys
-from subprocess import Popen, PIPE
+## Using JS Website connection
+from flask import Flask, jsonify, request, render_template
+app = Flask(__name__)
 
-direction = 0
-js_connection = Popen(['node', 'script.js'], stdout=PIPE)
-buffer = b''
-while True:
-    out = js_connection.stdout.read(1)
+import RPi.GPIO as GPIO
+import time
 
-    if out == b'\n':
-        print(buffer)
-        buffer = b''
-    else:
-        buffer += out
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(7,GPIO.OUT)  # Left motor forward
+GPIO.setup(11,GPIO.OUT)  # Left motor backward
+GPIO.setup(13,GPIO.OUT)  # Right motor forward
+GPIO.setup(15,GPIO.OUT)  # Right motor backward
+
+
+@app.route('/')
+def home_page():
+    example_embed='This string is from python'
+    return render_template('index.html', embed=example_embed)
+    
+app.run(debug=True)
