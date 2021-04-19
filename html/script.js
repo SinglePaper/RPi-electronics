@@ -70,7 +70,6 @@ async function updateDirection() {
         case 3:
             console.log("Right")
     }
-    await sleep(500);
 }
 
 while (true) {updateDirection();}
