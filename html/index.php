@@ -1,5 +1,5 @@
 <?php
 $message = "It works!";
 
-readfile("home.html");
+echo(file_get_contents("home.html"))
 ?>
