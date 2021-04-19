@@ -82,5 +82,5 @@ def home_page():
     example_embed='This string is from python'
     return render_template('index.html', embed=example_embed)
 
-app.run(debug=True)
+app.run(host='192.168.2.64', debug=True)
 GPIO.cleanup()
