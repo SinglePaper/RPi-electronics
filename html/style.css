@@ -9,4 +9,5 @@ button#forwards {
 div.controls td {
     height: 50px;
     width: 50px;
+    border: 1px;
 }
