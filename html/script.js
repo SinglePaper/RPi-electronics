@@ -57,7 +57,7 @@ function rightPress(e) {
 
 function resetPress(e) {
     e.preventDefault();
-    console.log("Direction: Up")
+//    console.log("Direction: Up")          God so much spam please oh god please
     direction = 0
     sendDirection()
 }
