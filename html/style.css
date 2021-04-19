@@ -20,7 +20,7 @@ div.controls td {
     width: 50px;
     border: 1px solid black;
 }
-td.up button, td.back button, td.left button, td.right button {
+td.up button, td.down button, td.left button, td.right button {
     height: inherit;
     width: inherit;
     color: white;
