@@ -34,42 +34,33 @@ function upPress(e) {
     e.preventDefault();
     console.log("Button: Up")
     direction = 0                       // Maybe add support for making this a speed up button
+    sendDirection()
 }
 function downPress(e) {
     e.preventDefault();
     console.log("Button: Down")
     direction = 2
+    sendDirection()
 }
 function leftPress(e) {
     e.preventDefault();
     console.log("Button: Left")
     direction = 1
+    sendDirection()
 }
 function rightPress(e) {
     e.preventDefault();
     console.log("Button: Right")
     direction = 3
+    sendDirection()
 }
 
 function resetPress(e) {
     e.preventDefault();
     direction = 0
+    sendDirection()
 }
 
-async function updateDirection() {
-    switch (direction) {
-        case 0:
-            console.log("Forward")
-            break
-        case 1:
-            console.log("Left")
-            break
-        case 2:
-            console.log("Backward")
-            break
-        case 3:
-            console.log("Right")
-    }
+function sendDirection() {
+    // Code to send variable to python
 }
-
-while (true) {updateDirection();}
