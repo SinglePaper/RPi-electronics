@@ -12,8 +12,8 @@ div.controls td {
     border: 1px solid black;
 }
 td#forwards button {
-    height: inherit;
-    width: inherit;
-    background: inherit;
+    height: 50px;
+    width: 50px;
+    background: green;
     border: none;
 }
