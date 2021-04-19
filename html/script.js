@@ -1,11 +1,14 @@
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
 direction = 0
 
 up_button = document.getElementById("up");
 down_button = document.getElementById("down");
 left_button = document.getElementById("left");
 right_button = document.getElementById("right");
-
-console.log(up_button, down_button, left_button, right_button) // Debug
 
 // Events for up button
 up_button.addEventListener("mousedown", upPress, false);
@@ -65,4 +68,5 @@ while (true) {
         case 3:
             console.log("Right")
     }
+    await sleep(500);
 }
