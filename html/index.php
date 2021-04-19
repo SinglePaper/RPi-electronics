@@ -1,5 +1,7 @@
 <?php
 $message = "It works!";
 
-echo(file_get_contents("home.html"))
+
+$html = file_get_contents("home.html");
+echo($html);
 ?>
