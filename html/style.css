@@ -3,17 +3,27 @@ h1 {
     font-family: Helvetica, sans-serif, Georgia;
 }
 
-div.controls td.forwards {
+div.controls td.up {
     background-color:green;
+}
+div.controls td.down {
+    background-color:red;
+}
+div.controls td.left {
+    background-color:turquoise;
+}
+div.controls td.right {
+    background-color:turquoise;
 }
 div.controls td {
     height: 50px;
     width: 50px;
     border: 1px solid black;
 }
-td.forwards button {
+td.up button, td.back button, td.left button, td.right button {
     height: inherit;
     width: inherit;
+    color: white;
     background: transparent;
     border: none !important;
 }
