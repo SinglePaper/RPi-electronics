@@ -81,5 +81,6 @@ GPIO.setup(15,GPIO.OUT)  # Right motor backward
 def home_page():
     example_embed='This string is from python'
     return render_template('index.html', embed=example_embed)
-    
+
 app.run(debug=True)
+GPIO.cleanup()
