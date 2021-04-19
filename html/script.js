@@ -53,7 +53,6 @@ function rightPress(e) {
 
 function resetPress(e) {
     e.preventDefault();
-    console.log("Button released.")
     direction = 0
 }
 
@@ -72,3 +71,5 @@ async function updateDirection() {
         await sleep(500);
     }
 }
+
+updateDirection();
