@@ -57,22 +57,20 @@ function resetPress(e) {
 }
 
 async function updateDirection() {
-    while (true) {
-        switch (toString(direction)) {
-            case "0":
-                console.log("Forward")
-                break
-            case "1":
-                console.log("Left")
-                break
-            case "2":
-                console.log("Backward")
-                break
-            case "3":
-                console.log("Right")
-        }
-        await sleep(500);
+    switch (direction) {
+        case 0:
+            console.log("Forward")
+            break
+        case 1:
+            console.log("Left")
+            break
+        case 2:
+            console.log("Backward")
+            break
+        case 3:
+            console.log("Right")
     }
+    await sleep(500);
 }
 
-updateDirection();
+while (true) {updateDirection();}
