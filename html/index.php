@@ -9,9 +9,7 @@ $message = "It works!";
     </head>
     <body>
         <h1>
-            <?php
-            $message
-            ?>
+            <?=$message?>
         </h1>
     </body>
 </html>
