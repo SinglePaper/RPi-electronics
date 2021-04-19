@@ -33,25 +33,25 @@ right_button.addEventListener("mouseleave", resetPress, false);
 function upPress(e) {
     e.preventDefault();
     direction = 0                       // Maybe add support for making this a speed up button
-    sendDirection()
+    updateData()
     console.log("Direction: Up")
 }
 function downPress(e) {
     e.preventDefault();
     direction = 2
-    sendDirection()
+    updateData()
     console.log("Direction: Down")
 }
 function leftPress(e) {
     e.preventDefault();
     direction = 1
-    sendDirection()
+    updateData()
     console.log("Direction: Left")
 }
 function rightPress(e) {
     e.preventDefault();
     direction = 3
-    sendDirection()
+    updateData()
     console.log("Direction: Right")
 }
 
@@ -59,11 +59,15 @@ function resetPress(e) {
     e.preventDefault();
 //    console.log("Direction: Up")          God so much spam please oh god please
     direction = 0
-    sendDirection()
+    updateData()
     console.log("Direction: Up")
 }
 
+function updateData() {
+    sendDirection()
+    process.stdout.write(direction + '\n');
+}
+
 function sendDirection() {
-    // Code to send variable to python
     console.clear()
 }
