@@ -27,6 +27,6 @@ td.up button, td.down button, td.left button, td.right button {
     background: transparent;
     border: none !important;
 }
-td.up button:active button:focus, td.down button:active button:focus, td.left button:active button:focus, td.right button:active button:focus {
+td.up button:active, td.down button:active, td.left button:active, td.right button:active {
     outline: none;
 }
