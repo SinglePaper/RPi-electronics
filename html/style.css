@@ -11,7 +11,7 @@ div.controls td {
     width: 50px;
     border: 1px solid black;
 }
-td#forwards button {
+td.forwards button {
     height: 50px;
     width: 50px;
     background: transparent;
