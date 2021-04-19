@@ -16,9 +16,9 @@ div#controls td.right {
     background-color:turquoise;
 }
 div#controls td {
-    height: 150px;
-    width: 150px;
-    border-radius: 15px;
+    height: 10vh;
+    width: 10vh;
+    border-radius: 1vh;
 }
 td.up button, td.down button, td.left button, td.right button {
     height: inherit;
