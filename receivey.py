@@ -81,5 +81,6 @@ GPIO.setup(15,GPIO.OUT)  # Right motor backward
 def home_page():
     return render_template('index.html')
 
+
 app.run(host='192.168.2.64', debug=True)
 GPIO.cleanup()
