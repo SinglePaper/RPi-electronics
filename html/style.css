@@ -3,19 +3,19 @@ h1 {
     font-family: Helvetica, sans-serif, Georgia;
 }
 
-div.controls td.up {
+div#controls td.up {
     background-color:green;
 }
-div.controls td.down {
+div#controls td.down {
     background-color:red;
 }
-div.controls td.left {
+div#controls td.left {
     background-color:turquoise;
 }
-div.controls td.right {
+div#controls td.right {
     background-color:turquoise;
 }
-div.controls td {
+div#controls td {
     height: 50px;
     width: 50px;
     border-radius: 5px;

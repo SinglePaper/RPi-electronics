@@ -32,31 +32,32 @@ right_button.addEventListener("mouseleave", resetPress, false);
 
 function upPress(e) {
     e.preventDefault();
-    console.log("Button: Up")
+    console.log("Direction: Up")
     direction = 0                       // Maybe add support for making this a speed up button
     sendDirection()
 }
 function downPress(e) {
     e.preventDefault();
-    console.log("Button: Down")
+    console.log("Direction: Down")
     direction = 2
     sendDirection()
 }
 function leftPress(e) {
     e.preventDefault();
-    console.log("Button: Left")
+    console.log("Direction: Left")
     direction = 1
     sendDirection()
 }
 function rightPress(e) {
     e.preventDefault();
-    console.log("Button: Right")
+    console.log("Direction: Right")
     direction = 3
     sendDirection()
 }
 
 function resetPress(e) {
     e.preventDefault();
+    console.log("Direction: Up")
     direction = 0
     sendDirection()
 }
