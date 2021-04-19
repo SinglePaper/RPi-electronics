@@ -1,5 +1,5 @@
 <?php
 $message = "It works!"
 
-readfile("##home.html");
+readfile("home.html");
 ?>
