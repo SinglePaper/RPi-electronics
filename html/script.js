@@ -5,6 +5,8 @@ down_button = document.getElementById("down");
 left_button = document.getElementById("left");
 right_button = document.getElementById("right");
 
+console.log(up_button, down_button, left_button, right_button) // Debug
+
 // Events for up button
 up_button.addEventListener("mousedown", upPress, false);
 up_button.addEventListener("mouseup", resetPress, false);
