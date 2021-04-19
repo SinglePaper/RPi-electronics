@@ -58,7 +58,7 @@ function resetPress(e) {
 
 async function updateDirection() {
     while (true) {
-        switch (direction) {
+        switch (toString(direction)) {
             case "0":
                 console.log("Forward")
                 break
