@@ -83,7 +83,8 @@ direction = 0  # Forward
 def receiver():
     # read json + reply
     data = request.get_json(force=True)
-    print("Data: ", data)
+    print("Direction: ", data['direction'])
+    print("Speed: ", data['speed'])
 #       direction = data['direction']
     return 'OK'
 @app.route('/')
