@@ -28,23 +28,23 @@
 #                 break
 #             print(f"{address[0]}: " + data)
 #             if data == "f":
-#                 GPIO.output(7, True)
-#                 GPIO.output(11, False)
-#                 GPIO.output(13, True)
-#                 GPIO.output(15, False)
-#             elif data == "b":
 #                 GPIO.output(7, False)
 #                 GPIO.output(11, True)
 #                 GPIO.output(13, False)
 #                 GPIO.output(15, True)
-#             elif data == "l":
-#                 GPIO.output(7, False)
+#             elif data == "b":
+#                 GPIO.output(7, True)
 #                 GPIO.output(11, False)
 #                 GPIO.output(13, True)
 #                 GPIO.output(15, False)
-#             elif data == "r":
-#                 GPIO.output(7, True)
+#             elif data == "l":
+#                 GPIO.output(7, False)
 #                 GPIO.output(11, False)
+#                 GPIO.output(13, False)
+#                 GPIO.output(15, True)
+#             elif data == "r":
+#                 GPIO.output(7, False)
+#                 GPIO.output(11, True)
 #                 GPIO.output(13, False)
 #                 GPIO.output(15, False)
 #             else:
@@ -106,23 +106,23 @@ def receiver():
     speed = data['speed']
 
     if direction == 0:  # Forward
-        GPIO.output(7, True)
-        GPIO.output(11, False)
-        GPIO.output(13, True)
-        GPIO.output(15, False)
-    elif direction == 1:  # Left
-        GPIO.output(7, False)
-        GPIO.output(11, False)
-        GPIO.output(13, True)
-        GPIO.output(15, False)
-    elif direction == 2:  # Backward
         GPIO.output(7, False)
         GPIO.output(11, True)
         GPIO.output(13, False)
         GPIO.output(15, True)
-    elif direction == 3:  # Right
+    elif direction == 1:  # Left
+        GPIO.output(7, False)
+        GPIO.output(11, False)
+        GPIO.output(13, False)
+        GPIO.output(15, True)
+    elif direction == 2:  # Backward
         GPIO.output(7, True)
         GPIO.output(11, False)
+        GPIO.output(13, False)
+        GPIO.output(15, True)
+    elif direction == 3:  # Right
+        GPIO.output(7, False)
+        GPIO.output(11, True)
         GPIO.output(13, False)
         GPIO.output(15, False)
     else:                 # Shouldn't happen but just in case: just shut off
