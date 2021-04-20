@@ -31,25 +31,25 @@ right_button.addEventListener("mouseleave", resetPress, false);
 
 function upPress(e) {
     e.preventDefault();
-    data[0]["direction"] = 0                       // Maybe add support for making this a speed up button
+    data["direction"] = 0                       // Maybe add support for making this a speed up button
     updateData()
     console.log("Direction: Up")
 }
 function downPress(e) {
     e.preventDefault();
-    direction = 2
+    data["direction"] = 2
     updateData()
     console.log("Direction: Down")
 }
 function leftPress(e) {
     e.preventDefault();
-    direction = 1
+    data["direction"] = 1
     updateData()
     console.log("Direction: Left")
 }
 function rightPress(e) {
     e.preventDefault();
-    direction = 3
+    data["direction"] = 3
     updateData()
     console.log("Direction: Right")
 }
@@ -57,7 +57,7 @@ function rightPress(e) {
 function resetPress(e) {
     e.preventDefault();
 //    console.log("Direction: Up")          God so much spam please oh god please
-    direction = 0
+    data["direction"] = 0
     updateData()
     console.log("Direction: Up")
 }
@@ -68,6 +68,6 @@ function updateData() {
 
 function sendDirection() {
     console.clear()
-    $.post("receiver", direction, function(){
+    $.post("receiver", data, function(){
 	});
 }

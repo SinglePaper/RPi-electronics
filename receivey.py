@@ -77,17 +77,15 @@ GPIO.setup(11,GPIO.OUT)  # Left motor backward
 GPIO.setup(13,GPIO.OUT)  # Right motor forward
 GPIO.setup(15,GPIO.OUT)  # Right motor backward
 
+direction = 0  # Forward
 
 @app.route('/receiver', methods = ['POST'])
-def worker():
-	# read json + reply
-	data = request.get_json()
-	result = ''
-	for item in data:
-		# loop over every row
-		result += str(item['make']) + ''
-    print(result)
-	return result
+def receiver():
+    # read json + reply
+    data = request.get_json()
+    direction = data['direction']
+    print("Direction: ", direction)
+    return direction
 @app.route('/')
 def home_page():
     return render_template('index.html')
