@@ -67,6 +67,7 @@
 from flask import Flask, jsonify, request, render_template
 import random, json
 import logging
+from os import system
 
 app = Flask(__name__)
 log = logging.getLogger('werkzeug')
@@ -87,6 +88,8 @@ direction = 0  # Forward
 def receiver():
     # read json + reply
     data = request.get_json(force=True)
+
+    system('cls')
     print("Direction: ", data['direction'])
     print("Speed: ", data['speed'])
 #       direction = data['direction']
