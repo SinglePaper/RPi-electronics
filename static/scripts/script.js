@@ -63,6 +63,6 @@ function updateData() {
 function sendDirection() {
     console.clear()
     console.log(data)
-    $.post(("receiver", data), function(){
+    $.post(("receiver", data['direction']), function(){
 	});
 }
