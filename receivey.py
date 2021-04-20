@@ -66,8 +66,12 @@
 ## Using JS Website connection
 from flask import Flask, jsonify, request, render_template
 import random, json
+import logging
+from os import system
 
 app = Flask(__name__)
+log = logging.getLogger('werkzeug')
+log.disabled = True
 
 import RPi.GPIO as GPIO
 import time
@@ -146,5 +150,5 @@ def receiver():
 def home_page():
     return render_template('index.html')
 
+app.run(host='0.0.0.0', debug=True)
 GPIO.cleanup()
-app.run(host='0.0.0.0')
