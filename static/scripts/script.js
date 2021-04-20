@@ -63,8 +63,17 @@ function updateData() {
 function sendDirection() {
     console.clear()
     console.log(data)
-    $.post("receiver", {
-        direction: data['direction'],
-        speed: data['speed']
-	});
+    $.ajax({
+        type: "POST",
+        url: "{{ url_for('get_post_json') }}",
+        contentType: "application/json",
+        data: JSON.stringify(data),
+        dataType: "json",
+        success: function(response) {
+            console.log(response);
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });
 }
