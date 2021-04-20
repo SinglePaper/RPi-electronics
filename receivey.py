@@ -100,21 +100,55 @@ speed = 0
 @app.route('/receiver', methods = ['POST'])
 def receiver():
     # read json + reply
-    data = request.get_json(force=True)  # Get the json and turn it into a normal dict, ignore any mistakes that i made using force=True
+    data = request.get_json(force=True)  # Get the json and turn it into a normal dict, ignore any mistakes that i made using force=True :wink:
     # Extract the data from data into global variables to use to control the motor
     direction = data['direction']
     speed = data['speed']
+
+    if direction == 0:  # Forward
+        GPIO.output(7, True)
+        GPIO.output(11, False)
+        GPIO.output(13, True)
+        GPIO.output(15, False)
+    elif direction == 1:  # Left
+        GPIO.output(7, False)
+        GPIO.output(11, False)
+        GPIO.output(13, True)
+        GPIO.output(15, False)
+    elif direction == 2:  # Backward
+        GPIO.output(7, False)
+        GPIO.output(11, True)
+        GPIO.output(13, False)
+        GPIO.output(15, True)
+    elif direction == 3:  # Right
+        GPIO.output(7, True)
+        GPIO.output(11, False)
+        GPIO.output(13, False)
+        GPIO.output(15, False)
+    else:                 # Shouldn't happen but just in case: just shut off
+        GPIO.output(7, False)
+        GPIO.output(11, False)
+        GPIO.output(13, False)
+        GPIO.output(15, False)
+
+    if speed == 0:        # Can't happen yet, but just to make sure I remember what to do with this variable. Speed 0 = still, Speed 1 = normal, Speed 2 = fast
+        GPIO.output(7, False)
+        GPIO.output(11, False)
+        GPIO.output(13, False)
+        GPIO.output(15, False)
+    
+    # Speed can be implemented by repeatedly turning the motors on and off on given intervals, but can't be bothered to do that right now.
 
     # Print out some debugging tools and make it look pretty :)
     system('clear')
     print("\n=======Controls=======")
     print("Direction: ", direction)
     print("Speed: ", speed)
-#       direction = data['direction']
+    #       direction = data['direction']
     return 'OK'
 @app.route('/')
 def home_page():
     return render_template('index.html')
 
-app.run(host='0.0.0.0', debug=True)
 GPIO.cleanup()
+app.run(host='0.0.0.0', debug=True)
