@@ -89,7 +89,7 @@ def receiver():
     # read json + reply
     data = request.get_json(force=True)
 
-    system('cls')
+    system('clear')
     print("Direction: ", data['direction'])
     print("Speed: ", data['speed'])
 #       direction = data['direction']
