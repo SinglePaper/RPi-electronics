@@ -33,33 +33,27 @@ function upPress(e) {
     e.preventDefault();
     data["direction"] = 0                       // Maybe add support for making this a speed up button
     updateData()
-    console.log("Direction: Up")
 }
 function downPress(e) {
     e.preventDefault();
     data["direction"] = 2
     updateData()
-    console.log("Direction: Down")
 }
 function leftPress(e) {
     e.preventDefault();
     data["direction"] = 1
     updateData()
-    console.log("Direction: Left")
 }
 function rightPress(e) {
     e.preventDefault();
     data["direction"] = 3
     updateData()
-    console.log("Direction: Right")
 }
 
 function resetPress(e) {
     e.preventDefault();
-//    console.log("Direction: Up")          God so much spam please oh god please
     data["direction"] = 0
     updateData()
-    console.log("Direction: Up")
 }
 
 function updateData() {
@@ -68,6 +62,7 @@ function updateData() {
 
 function sendDirection() {
     console.clear()
+    console.log(data)
     $.post("receiver", data, function(){
 	});
 }
