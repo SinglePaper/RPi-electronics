@@ -86,7 +86,7 @@ def receiver():
     if data:
         print("Data: ", data)
 #       direction = data['direction']
-        return 'OK'
+    return 'OK'
 @app.route('/')
 def home_page():
     return render_template('index.html')
