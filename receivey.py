@@ -90,7 +90,7 @@ def receiver():
     data = request.get_json(force=True)
 
     system('clear')
-    print("Controls\n===============\n")
+    print("\n=======Controls=======")
     print("Direction: ", data['direction'])
     print("Speed: ", data['speed'])
 #       direction = data['direction']
