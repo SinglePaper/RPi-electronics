@@ -16,14 +16,16 @@ div#controls td.right {
     background-color:turquoise;
 }
 div#controls td {
-    height: 50px;
-    width: 50px;
-    border-radius: 5px;
+    height: 10em;
+    width: 10em;
+    border-radius: 1em;
+    font-size: 3em;
 }
 td.up button, td.down button, td.left button, td.right button {
     height: inherit;
     width: inherit;
     color: white;
+    font-size: inherit;
     background: transparent;
     border: none;
 }

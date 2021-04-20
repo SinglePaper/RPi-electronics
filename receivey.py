@@ -83,16 +83,33 @@ GPIO.setup(13,GPIO.OUT)  # Right motor forward
 GPIO.setup(15,GPIO.OUT)  # Right motor backward
 
 direction = 0  # Forward
+speed = 0
+
+## Directions
+# 0 - Forward
+# 1 - Left
+# 2 - Backward
+# 3 - Right
+#
+# Layout:
+#    0
+#  1 2 3
+##
+
 
 @app.route('/receiver', methods = ['POST'])
 def receiver():
     # read json + reply
-    data = request.get_json(force=True)
+    data = request.get_json(force=True)  # Get the json and turn it into a normal dict, ignore any mistakes that i made using force=True
+    # Extract the data from data into global variables to use to control the motor
+    direction = data['direction']
+    speed = data['speed']
 
+    # Print out some debugging tools and make it look pretty :)
     system('clear')
     print("\n=======Controls=======")
-    print("Direction: ", data['direction'])
-    print("Speed: ", data['speed'])
+    print("Direction: ", direction)
+    print("Speed: ", speed)
 #       direction = data['direction']
     return 'OK'
 @app.route('/')
