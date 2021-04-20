@@ -65,7 +65,7 @@ function sendDirection() {
     console.log(data)
     $.ajax({
         type: "POST",
-        url: "{{ url_for('get_post_json') }}",
+        url: "/receiver",
         contentType: "application/json",
         data: JSON.stringify(data),
         dataType: "json",
