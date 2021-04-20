@@ -65,6 +65,7 @@
 
 ## Using JS Website connection
 from flask import Flask, jsonify, request, render_template
+import random, json
 app = Flask(__name__)
 
 import RPi.GPIO as GPIO
@@ -77,10 +78,19 @@ GPIO.setup(13,GPIO.OUT)  # Right motor forward
 GPIO.setup(15,GPIO.OUT)  # Right motor backward
 
 
+@app.route('/receiver', methods = ['POST'])
+def worker():
+	# read json + reply
+	data = request.get_json()
+	result = ''
+	for item in data:
+		# loop over every row
+		result += str(item['make']) + ''
+    print(result)
+	return result
 @app.route('/')
 def home_page():
     return render_template('index.html')
-
 
 app.run(host='192.168.2.64', debug=True)
 GPIO.cleanup()

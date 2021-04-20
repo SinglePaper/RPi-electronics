@@ -2,8 +2,7 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
-direction = 0
+var data = {"direction": 0, "speed": 1}
 
 up_button = document.getElementById("up");
 down_button = document.getElementById("down");
@@ -32,7 +31,7 @@ right_button.addEventListener("mouseleave", resetPress, false);
 
 function upPress(e) {
     e.preventDefault();
-    direction = 0                       // Maybe add support for making this a speed up button
+    data[0]["direction"] = 0                       // Maybe add support for making this a speed up button
     updateData()
     console.log("Direction: Up")
 }
@@ -69,4 +68,6 @@ function updateData() {
 
 function sendDirection() {
     console.clear()
+    $.post("receiver", direction, function(){
+	});
 }
