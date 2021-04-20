@@ -83,8 +83,7 @@ direction = 0  # Forward
 def receiver():
     # read json + reply
     data = request.get_json()
-    if data:
-        print("Data: ", data)
+    print("Data: ", data)
 #       direction = data['direction']
     return 'OK'
 @app.route('/')
