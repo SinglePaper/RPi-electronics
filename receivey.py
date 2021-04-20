@@ -66,7 +66,11 @@
 ## Using JS Website connection
 from flask import Flask, jsonify, request, render_template
 import random, json
+import logging
+
 app = Flask(__name__)
+log = logging.getLogger('werkzeug')
+log.disabled = True
 
 import RPi.GPIO as GPIO
 import time
