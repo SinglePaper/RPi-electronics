@@ -33,6 +33,7 @@ autoDrive_switch.addEventListener("click", switchAutoDrive, false);
 
 function switchAutoDrive() {
     autoDrive = autoDrive_switch.checked;
+    console.log("Switched auto drive to ", autoDrive);
     resetPress();
 }
 
