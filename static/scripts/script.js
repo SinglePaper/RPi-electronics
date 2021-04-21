@@ -39,25 +39,25 @@ function switchAutoDrive() {
 function upPress(e) {
     e.preventDefault();
     data["direction"] = 0                       // Maybe add support for making this a speed up button
-    if (!autoDrive.checked) data["speed"] = 1;
+    if (!autoDrive) data["speed"] = 1;
     updateData()
 }
 function downPress(e) {
     e.preventDefault();
     data["direction"] = 2
-    if (!autoDrive.checked) data["speed"] = 1;
+    if (!autoDrive) data["speed"] = 1;
     updateData()
 }
 function leftPress(e) {
     e.preventDefault();
     data["direction"] = 1
-    if (!autoDrive.checked) data["speed"] = 1;
+    if (!autoDrive) data["speed"] = 1;
     updateData()
 }
 function rightPress(e) {
     e.preventDefault();
     data["direction"] = 3
-    if (!autoDrive.checked) data["speed"] = 1;
+    if (!autoDrive) data["speed"] = 1;
     updateData()
 }
 
