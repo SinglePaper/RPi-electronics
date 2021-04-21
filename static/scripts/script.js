@@ -1,10 +1,12 @@
 var data = {"direction": 0, "speed": 0}
 
+autoDrive = false;
+
 up_button = document.getElementById("up");
 down_button = document.getElementById("down");
 left_button = document.getElementById("left");
 right_button = document.getElementById("right");
-autoDrive = document.getElementById("autodrive");
+autoDrive_switch = document.getElementById("autodrive");
 
 // Events for up button
 up_button.addEventListener("mousedown", upPress, false);
@@ -27,9 +29,12 @@ right_button.addEventListener("mouseup", resetPress, false);
 right_button.addEventListener("mouseleave", resetPress, false);
 
 // Events for autoDrive switch
-autoDrive.addEventListener("click", switchAutoDrive, false);
+autoDrive_switch.addEventListener("click", switchAutoDrive, false);
 
-function switchAutoDrive() {resetPress()}
+function switchAutoDrive() {
+    autoDrive = autoDrive_switch.checked;
+    sendDirection();
+}
 
 function upPress(e) {
     e.preventDefault();
