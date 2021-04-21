@@ -74,17 +74,14 @@ function updateData() {
 }
 
 function sendDirection() {
-    console.clear()
-    console.log(data)
+//    console.log(data)
     $.ajax({
         type: "POST",
         url: "/receiver",
         contentType: "application/json",
         data: JSON.stringify(data),
         dataType: "json",
-        success: function(response) {
-            console.log(response);
-        },
+        success: function(response) {},
         error: function(err) {
             console.log(err);
         }
