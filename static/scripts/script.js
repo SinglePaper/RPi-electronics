@@ -26,6 +26,9 @@ right_button.addEventListener("mousedown", rightPress, false);
 right_button.addEventListener("mouseup", resetPress, false);
 right_button.addEventListener("mouseleave", resetPress, false);
 
+// Events for autoDrive switch
+autoDrive.addEventListener("click", resetPress, false);
+
 function upPress(e) {
     e.preventDefault();
     data["direction"] = 0                       // Maybe add support for making this a speed up button
