@@ -1,13 +1,12 @@
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 var data = {"direction": 0, "speed": 1}
+
+var autoDrive = false;
 
 up_button = document.getElementById("up");
 down_button = document.getElementById("down");
 left_button = document.getElementById("left");
 right_button = document.getElementById("right");
+auto_drive_switch = document.getElementById("autodrive")
 
 // Events for up button
 up_button.addEventListener("mousedown", upPress, false);
@@ -32,27 +31,32 @@ right_button.addEventListener("mouseleave", resetPress, false);
 function upPress(e) {
     e.preventDefault();
     data["direction"] = 0                       // Maybe add support for making this a speed up button
+    if (!autoDrive) data["speed"] = 1;
     updateData()
 }
 function downPress(e) {
     e.preventDefault();
     data["direction"] = 2
+    if (!autoDrive) data["speed"] = 1;
     updateData()
 }
 function leftPress(e) {
     e.preventDefault();
     data["direction"] = 1
+    if (!autoDrive) data["speed"] = 1;
     updateData()
 }
 function rightPress(e) {
     e.preventDefault();
     data["direction"] = 3
+    if (!autoDrive) data["speed"] = 1;
     updateData()
 }
 
 function resetPress(e) {
     e.preventDefault();
     data["direction"] = 0
+    data["speed"] = autoDrive ? 1 : 0
     updateData()
 }
 
