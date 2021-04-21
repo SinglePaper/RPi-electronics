@@ -18,7 +18,7 @@ div#controls td.right {
 div#controls td {
     height: 5em;
     width: 5em;
-    border-radius: 2em;
+    border-radius: 1em;
     font-size: 2em;
 }
 td.up button, td.down button, td.left button, td.right button {
