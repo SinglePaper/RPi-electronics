@@ -63,7 +63,7 @@ function rightPress(e) {
 }
 
 function resetPress(e) {
-    e.preventDefault();
+    if (e) e.preventDefault();
     data["direction"] = 0
     data["speed"] = autoDrive ? 1 : 0
     updateData()
