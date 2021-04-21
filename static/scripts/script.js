@@ -33,7 +33,7 @@ autoDrive_switch.addEventListener("click", switchAutoDrive, false);
 
 function switchAutoDrive() {
     autoDrive = autoDrive_switch.checked;
-    sendDirection();
+    resetPress();
 }
 
 function upPress(e) {
