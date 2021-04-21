@@ -27,7 +27,9 @@ right_button.addEventListener("mouseup", resetPress, false);
 right_button.addEventListener("mouseleave", resetPress, false);
 
 // Events for autoDrive switch
-autoDrive.addEventListener("mouseup", resetPress, false);
+autoDrive.addEventListener("click", switchAutoDrive, false);
+
+function switchAutoDrive() {resetPress()}
 
 function upPress(e) {
     e.preventDefault();
