@@ -82,8 +82,6 @@ function sendDirection() {
         data: JSON.stringify(data),
         dataType: "json",
         success: function(response) {},
-        error: function(err) {
-            console.log(err);
-        }
+        error: function(err) {}
     });
 }
