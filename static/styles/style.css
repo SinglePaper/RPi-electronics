@@ -16,10 +16,10 @@ div#controls td.right {
     background-color:turquoise;
 }
 div#controls td {
-    height: 10em;
-    width: 10em;
-    border-radius: 1em;
-    font-size: 3em;
+    height: 5em;
+    width: 5em;
+    border-radius: 0.3em;
+    font-size: 1em;
 }
 td.up button, td.down button, td.left button, td.right button {
     height: inherit;
