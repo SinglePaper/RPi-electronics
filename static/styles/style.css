@@ -33,6 +33,10 @@ td.up button:focus, td.down button:focus, td.left button:focus, td.right button:
     outline: none;
 }
 
+#camera {
+    width: 50%;
+}
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;
