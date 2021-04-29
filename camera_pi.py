@@ -37,7 +37,7 @@ class Camera(object):
             # camera setup
             camera.resolution = (640, 480)
             camera.framerate = 30
-            camera.hflip = True
+            camera.hflip = False
             camera.vflip = True
 
             # let camera warm up
