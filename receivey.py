@@ -68,7 +68,7 @@ from flask import Flask, jsonify, request, render_template
 import random, json
 import logging
 from os import system
-from camera_pi import camera
+from camera_pi import Camera
 
 app = Flask(__name__)
 log = logging.getLogger('werkzeug')
