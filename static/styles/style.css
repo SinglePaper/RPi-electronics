@@ -35,6 +35,7 @@ td.up button:focus, td.down button:focus, td.left button:focus, td.right button:
 
 #camera {
     width: 50%;
+    float: right;
 }
 
 /* The switch - the box around the slider */
