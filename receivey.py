@@ -64,7 +64,7 @@
 
 
 ## Using JS Website connection
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, Response
 import random, json
 import logging
 from os import system
