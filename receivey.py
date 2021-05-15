@@ -164,5 +164,5 @@ def video_feed():
     return Response(gen(Camera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
-app.run(host='0.0.0.0', port='80', debug=True, threaded=True)
+app.run(ssl_context='adhoc', host='0.0.0.0', port='80', debug=True, threaded=True)
 GPIO.cleanup()
