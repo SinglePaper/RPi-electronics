@@ -19,11 +19,11 @@ while True:
         clientsocket, address = s.accept()
         print(f"Successful connection with address {address[0]}.")
         while True:
-            data = clientsocket.recv(1).decode("utf-8")
+            data = clientsocket.recv(3).decode("utf-8")
             if not data:
                 break
             print(f"{address[0]}: " + data)
-            if data[0 == 0:  # Forward
+            if data[0] == 0:  # Forward
                 GPIO.output(7, True)
                 GPIO.output(11, False)
                 GPIO.output(13, False)
