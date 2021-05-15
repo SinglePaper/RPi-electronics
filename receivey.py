@@ -14,7 +14,7 @@
 
 
 # s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# s.bind(("192.168.2.64", 5432))
+# s.bind(("0.0.0.0", 5432))
 # s.listen(5)
 
 # while True:
