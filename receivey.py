@@ -77,6 +77,8 @@ log.disabled = True
 import RPi.GPIO as GPIO
 import time
 
+GPIO.setwarnings(False)
+
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(7,GPIO.OUT)  # Left motor forward
 GPIO.setup(11,GPIO.OUT)  # Left motor backward
