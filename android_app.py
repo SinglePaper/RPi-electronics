@@ -67,8 +67,6 @@ class Main(MDApp):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def socket_connect(self):
-
-        print("Any open sockets closed")
         button = self.root.ids.socket_connect
         button.icon = "cellphone_cog"
         label = self.root.ids.txt
