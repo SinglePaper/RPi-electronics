@@ -115,14 +115,14 @@ def receiver():
         GPIO.output(7, False)
         GPIO.output(11, True)
         GPIO.output(13, False)
-        GPIO.output(15, False)
+        GPIO.output(15, True)
     elif direction == 2:  # Backward
         GPIO.output(7, True)
         GPIO.output(11, False)
         GPIO.output(13, False)
         GPIO.output(15, True)
     elif direction == 3:  # Right
-        GPIO.output(7, False)
+        GPIO.output(7, True)
         GPIO.output(11, False)
         GPIO.output(13, True)
         GPIO.output(15, False)
