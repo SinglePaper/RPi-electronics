@@ -1,6 +1,5 @@
 import socket
 import RPi.GPIO as GPIO
-import time
 
 GPIO.setwarnings(False)
 
