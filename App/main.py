@@ -3,10 +3,8 @@ from kivy.lang import Builder
 from kivy.core.window import Window
 import socket
 
-#
-# s.send(b'Message from client to server.')
-# s.send(information.encode("utf-8"))
-
+from android.permissions import request_permissions, Permission
+request_permissions([Permission.INTERNET])
 
 kv = """
 Screen:
@@ -96,8 +94,6 @@ class Main(MDApp):
 
     def build(self):
         return Builder.load_string(kv)
-
-
 
 
 Main().run()
