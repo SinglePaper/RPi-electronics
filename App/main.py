@@ -71,8 +71,9 @@ class Main(MDApp):
             self.s.connect(("charlie.local", 5432))
             label.text = "Socket successfully connected!"
             button.icon = "cellphone-sound"
-        except:
-            label.text = "Socket connection unsuccessful."
+        except Exception as e:
+            label.text = e
+            print(e)
             button.icon = "cellphone-off"
         return
 
