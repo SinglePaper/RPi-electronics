@@ -60,7 +60,6 @@ Screen:
 
 class Main(MDApp):
     data = {"direction": 0, "speed": 0, "autodrive": 0}
-    Window.size = (1080 / 2, 1920 / 2)
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def socket_connect(self):
@@ -71,9 +70,8 @@ class Main(MDApp):
             self.s.connect(("charlie.local", 5432))
             label.text = "Socket successfully connected!"
             button.icon = "cellphone-sound"
-        except Exception as e:
-            label.text = e
-            print(e)
+        except:
+            label.text = "Socket connection unsuccessful."
             button.icon = "cellphone-off"
         return
 
