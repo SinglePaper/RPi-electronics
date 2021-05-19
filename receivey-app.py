@@ -8,6 +8,10 @@ GPIO.setup(7,GPIO.OUT)  # Left motor forward
 GPIO.setup(11,GPIO.OUT)  # Left motor backward
 GPIO.setup(13,GPIO.OUT)  # Right motor forward
 GPIO.setup(15,GPIO.OUT)  # Right motor backward
+GPIO.output(7, False)
+GPIO.output(11, False)
+GPIO.output(13, False)
+GPIO.output(15, False)
 
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

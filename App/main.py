@@ -3,8 +3,7 @@ from kivy.lang import Builder
 from kivy.core.window import Window
 import socket
 
-from android.permissions import request_permissions, Permission
-request_permissions([Permission.INTERNET])
+
 
 kv = """
 Screen:
@@ -21,6 +20,7 @@ Screen:
             app.socket_connect()
     MDFillRoundFlatButton:
         pos_hint: {'center_x': 0.5, 'center_y': 0.27}
+        id: up
         width: dp(150)
         height: dp(150)
         md_bg_color: 0, 1, 0, 1
@@ -30,6 +30,7 @@ Screen:
             app.send_direction(0, 0)
     MDFillRoundFlatButton:
         pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+        id: down
         width: dp(150)
         height: dp(150)
         md_bg_color: 1, 0, 0, 1
@@ -39,6 +40,7 @@ Screen:
             app.send_direction(0, 0)
     MDFillRoundFlatButton:
         pos_hint: {'center_x': 0.2, 'center_y': 0.1}
+        id: left
         width: dp(150)
         height: dp(150)
         md_bg_color: 0, 1, 1, 1
@@ -48,6 +50,7 @@ Screen:
             app.send_direction(0, 0)
     MDFillRoundFlatButton:
         pos_hint: {'center_x': 0.8, 'center_y': 0.1}
+        id: right
         width: dp(150)
         height: dp(150)
         md_bg_color: 0, 1, 1, 1
@@ -63,6 +66,7 @@ class Main(MDApp):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def socket_connect(self):
+        print(Window.size)
         button = self.root.ids.socket_connect
         button.icon = "cellphone_cog"
         label = self.root.ids.txt
