@@ -6,7 +6,7 @@ body {
 
 div#panels {
     width:50%;
-    position:absolute;
+    display:block;
     margin:auto;
 }
 
