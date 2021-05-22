@@ -35,7 +35,7 @@ class Camera(object):
     def _thread(cls):
         with picamera.PiCamera() as camera:
             # camera setup
-            camera.resolution = (640, 480)
+            camera.resolution = (320, 240)
             camera.framerate = 12
             camera.hflip = False
             camera.vflip = False
