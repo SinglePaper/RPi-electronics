@@ -64,7 +64,6 @@ Screen:
 class Main(MDApp):
     data = {"direction": 0, "speed": 0, "autodrive": 0}
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    Window.size = (540, 1110)
 
     def on_start(self):
         dir_buttons = [self.root.ids.left, self.root.ids.right, self.root.ids.down, self.root.ids.up]
