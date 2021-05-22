@@ -68,7 +68,7 @@ class Main(MDApp):
     def on_start(self):
         dir_buttons = [self.root.ids.left, self.root.ids.right, self.root.ids.down, self.root.ids.up]
         for button in dir_buttons:
-            button.width = self.root.width / 100 * 27
+            button.width = self.root.width * 0.27
             button.height = button.width
 
     def socket_connect(self):
@@ -77,7 +77,7 @@ class Main(MDApp):
         button.icon = "cellphone_cog"
         label = self.root.ids.txt
         try:
-            self.s.connect(("charlie.local", 5432))
+            self.s.connect(("192.168.2.64", 5432))
             label.text = "Socket successfully connected!"
             button.icon = "cellphone-sound"
         except:
