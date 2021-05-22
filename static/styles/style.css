@@ -4,6 +4,12 @@ body {
     font-family: Helvetica, sans-serif, Georgia;
 }
 
+div#panels {
+    width:50%;
+    position:absolute;
+    margin:auto;
+}
+
 div#controls td.up {
     background-color:green;
 }

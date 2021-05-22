@@ -2,15 +2,13 @@
     <head>
         <title>Charlie Control</title>
         <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
-        <script>
-
-</script>
     </head>
     <body>
+        <div id="panels">
         <div id="explanation">
             <h1 id="heading"></h1>
         </div>
-        <iframe id="camera" scrolling="no" onload="resizeIframe(this)" src="http://charlie.local:12345/min.php">Your browser does not support this video feed.</iframe>
+        <iframe id="camera" scrolling="no" src="http://charlie.local:12345/min.php">Your browser does not support this video feed.</iframe>
 
         <div id="controls">
                 <table>
@@ -30,9 +28,8 @@
                     </tr>
                 </table>
         </div>
+        </div>
     </body>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <footer><script src="{{ url_for('static',filename='scripts/script.js') }}"></script></footer>
 </html>
-
-<!--<link rel="stylesheet" href="css/style_minified.css">-->
