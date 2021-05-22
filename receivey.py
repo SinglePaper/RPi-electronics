@@ -64,7 +64,7 @@
 
 
 ## Using JS Website connection
-from flask import Flask, jsonify, request, render_template, Response
+from flask import Flask, jsonify, request, render_template, Response, redirect
 import random, json
 import logging
 from os import system
@@ -162,7 +162,7 @@ def gen(camera):
 @app.route('/video_feed')
 def video_feed():
     """Video streaming route. Put this in the src attribute of an img tag."""
-    return 0.0.0.0:1234
+    return redirect("http://charlie.local:12345/min.php")
 
 app.run(host='0.0.0.0', port='80', debug=True, threaded=True)
 GPIO.cleanup()
