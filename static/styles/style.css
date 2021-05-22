@@ -39,7 +39,7 @@ td.up button:focus, td.down button:focus, td.left button:focus, td.right button:
     height: 288px;
     padding: 20px;
     border-radius:20px;
-    display:block;
+    display:inline-block;
     margin: 0 auto;
     border:none;
 }
