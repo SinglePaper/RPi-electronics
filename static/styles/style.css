@@ -4,9 +4,6 @@ body {
     font-family: Helvetica, sans-serif, Georgia;
 }
 
-div#controls table {
-}
-
 div#controls td.up {
     background-color:green;
 }
@@ -42,9 +39,6 @@ td.up button:focus, td.down button:focus, td.left button:focus, td.right button:
     height: 288px;
     border-radius:20px;
     border:none;
-    text-align:center;
-    display:block;
-    margin:auto;
 }
 
 /* The switch - the box around the slider */
