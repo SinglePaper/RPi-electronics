@@ -3,11 +3,11 @@
         <title>Charlie Control</title>
         <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
     </head>
-    <body onload="setTimeout('init();', 100);">
+    <body>
         <div id="explanation">
             <h1 id="heading"></h1>
         </div>
-        <iframe src="http://charlie.local:12345/min.php">Your browser does not support this video feed.</iframe>
+        <iframe id="camera" src="http://charlie.local:12345/min.php">Your browser does not support this video feed.</iframe>
         <div id="controls">
                 <table>
                     <tr>
