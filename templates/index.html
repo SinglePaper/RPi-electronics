@@ -2,12 +2,13 @@
     <head>
         <title>Charlie Control</title>
         <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+        <script src="{{ url_for('static',filename='script_min.js') }}"></script>
     </head>
-    <body>
+    <body onload="setTimeout('init();', 100);">
         <div id="explanation">
             <h1 id="heading"></h1>
         </div>
-        <img src="{{ url_for('video_feed') }}" id="camera">
+        <img id="mjpeg_dest" />
         <div id="controls">
                 <table>
                     <tr>

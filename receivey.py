@@ -159,10 +159,5 @@ def gen(camera):
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
-@app.route('/video_feed')
-def video_feed():
-    """Video streaming route. Put this in the src attribute of an img tag."""
-    return redirect("http://charlie.local:12345/min.php")
-
 app.run(host='0.0.0.0', port='80', debug=True, threaded=True)
 GPIO.cleanup()
