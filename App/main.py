@@ -19,7 +19,7 @@ Screen:
         on_press:
             app.socket_connect()
     MDFillRoundFlatButton:
-        pos_hint: {'center_x': 0.5, 'center_y': 0.27}
+        pos_hint: {'center_x': 0.5, 'center_y': 0.25}
         id: up
         width: dp(150)
         height: dp(150)
@@ -64,8 +64,13 @@ Screen:
 class Main(MDApp):
     data = {"direction": 0, "speed": 0, "autodrive": 0}
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    
+    Window.size = (540, 1110)
 
+    def on_start(self):
+        dir_buttons = [self.root.ids.left, self.root.ids.right, self.root.ids.down, self.root.ids.up]
+        for button in dir_buttons:
+            button.width = self.root.width / 100 * 27
+            button.height = button.width
 
     def socket_connect(self):
         print(Window.size)
@@ -102,3 +107,4 @@ class Main(MDApp):
 
 
 Main().run()
+Main().button_sizes()
