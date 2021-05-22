@@ -64,10 +64,11 @@
 
 
 ## Using JS Website connection
-from flask import Flask, jsonify, request, render_template, Response, redirect
+from flask import Flask, jsonify, request, render_template, Response
 import random, json
 import logging
 from os import system
+
 
 app = Flask(__name__)
 log = logging.getLogger('werkzeug')
@@ -158,6 +159,7 @@ def gen(camera):
         frame = camera.get_frame()
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
 
 app.run(host='0.0.0.0', port='80', debug=True, threaded=True)
 GPIO.cleanup()
