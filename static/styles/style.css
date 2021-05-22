@@ -39,7 +39,7 @@ td.up button:focus, td.down button:focus, td.left button:focus, td.right button:
     height: 288px;
     position: absolute;
     right: 400px;
-    border:blue 1px solid;
+    border-radius:20px
 }
 
 /* The switch - the box around the slider */
