@@ -68,7 +68,6 @@ from flask import Flask, jsonify, request, render_template, Response
 import random, json
 import logging
 from os import system
-from camera_pi import Camera
 
 app = Flask(__name__)
 log = logging.getLogger('werkzeug')
@@ -163,8 +162,7 @@ def gen(camera):
 @app.route('/video_feed')
 def video_feed():
     """Video streaming route. Put this in the src attribute of an img tag."""
-    return Response(gen(Camera()),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
+    return 0.0.0.0:1234
 
 app.run(host='0.0.0.0', port='80', debug=True, threaded=True)
 GPIO.cleanup()
