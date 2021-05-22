@@ -64,6 +64,8 @@ Screen:
 class Main(MDApp):
     data = {"direction": 0, "speed": 0, "autodrive": 0}
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    
+
 
     def socket_connect(self):
         print(Window.size)
