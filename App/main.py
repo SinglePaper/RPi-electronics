@@ -1,6 +1,7 @@
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.core.window import Window
+from kivy.garden.cefpython
 import socket
 
 
@@ -64,12 +65,16 @@ Screen:
 class Main(MDApp):
     data = {"direction": 0, "speed": 0, "autodrive": 0}
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    Window.size = (550, 1110)
 
     def on_start(self):
         dir_buttons = [self.root.ids.left, self.root.ids.right, self.root.ids.down, self.root.ids.up]
         for button in dir_buttons:
             button.width = self.root.width * 0.27
             button.height = button.width
+
+        #self.update_cam()
+        #Clock.schedule_interval(self.update_cam, 1/25)
 
     def socket_connect(self):
         print(Window.size)
@@ -97,9 +102,10 @@ class Main(MDApp):
         except:
             label.text = "Socket not connected."
 
-    def action(self):
-        label = self.root.ids.txt
-        label.text = "This text is displayed after pressing button"
+    def update_cam(self, *kwargs):
+        cam_view = self.root.ids.cam
+        #cam_view.source = "http://charlie.local:12345/cam_pic_new.php"
+        #cam_view.source = 'http://192.168.2.64:12345/cam_pic.php?time=' + str(floor(time() * 1000))
 
     def build(self):
         return Builder.load_string(kv)

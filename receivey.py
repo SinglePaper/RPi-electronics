@@ -7,7 +7,7 @@
 # import time
 
 # GPIO.setmode(GPIO.BOARD)
-# GPIO.setup(7,GPIO.OUT)  # Left motor forward
+# GPIO.setup(16,GPIO.OUT)  # Left motor forward
 # GPIO.setup(11,GPIO.OUT)  # Left motor backward
 # GPIO.setup(13,GPIO.OUT)  # Right motor forward
 # GPIO.setup(15,GPIO.OUT)  # Right motor backward
@@ -28,27 +28,27 @@
 #                 break
 #             print(f"{address[0]}: " + data)
 #             if data == "f":
-#                 GPIO.output(7, False)
+#                 GPIO.output(16, False)
 #                 GPIO.output(11, True)
 #                 GPIO.output(13, False)
 #                 GPIO.output(15, True)
 #             elif data == "b":
-#                 GPIO.output(7, True)
+#                 GPIO.output(16, True)
 #                 GPIO.output(11, False)
 #                 GPIO.output(13, True)
 #                 GPIO.output(15, False)
 #             elif data == "l":
-#                 GPIO.output(7, False)
+#                 GPIO.output(16, False)
 #                 GPIO.output(11, False)
 #                 GPIO.output(13, False)
 #                 GPIO.output(15, True)
 #             elif data == "r":
-#                 GPIO.output(7, False)
+#                 GPIO.output(16, False)
 #                 GPIO.output(11, True)
 #                 GPIO.output(13, False)
 #                 GPIO.output(15, False)
 #             else:
-#                 GPIO.output(7, False)
+#                 GPIO.output(16, False)
 #                 GPIO.output(11, False)
 #                 GPIO.output(13, False)
 #                 GPIO.output(15, False)
@@ -80,7 +80,7 @@ import time
 GPIO.setwarnings(False)
 
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7,GPIO.OUT)  # Left motor forward
+GPIO.setup(16,GPIO.OUT)  # Left motor forward
 GPIO.setup(11,GPIO.OUT)  # Left motor backward
 GPIO.setup(13,GPIO.OUT)  # Right motor forward
 GPIO.setup(15,GPIO.OUT)  # Right motor backward
@@ -109,33 +109,33 @@ def receiver():
     speed = data['speed']
 
     if direction == 0:  # Forward
-        GPIO.output(7, True)
+        GPIO.output(16, True)
         GPIO.output(11, False)
         GPIO.output(13, False)
         GPIO.output(15, True)
     elif direction == 1:  # Left
-        GPIO.output(7, True)
+        GPIO.output(16, True)
         GPIO.output(11, False)
         GPIO.output(13, True)
         GPIO.output(15, False)
     elif direction == 2:  # Backward
-        GPIO.output(7, False)
+        GPIO.output(16, False)
         GPIO.output(11, True)
         GPIO.output(13, True)
         GPIO.output(15, False)
     elif direction == 3:  # Right
-        GPIO.output(7, False)
+        GPIO.output(16, False)
         GPIO.output(11, True)
         GPIO.output(13, False)
         GPIO.output(15, True)
     else:                 # Shouldn't happen but just in case: just shut off
-        GPIO.output(7, False)
+        GPIO.output(16, False)
         GPIO.output(11, False)
         GPIO.output(13, False)
         GPIO.output(15, False)
 
     if speed == 0:        # Can't happen yet, but just to make sure I remember what to do with this variable. Speed 0 = still, Speed 1 = normal, Speed 2 = fast
-        GPIO.output(7, False)
+        GPIO.output(16, False)
         GPIO.output(11, False)
         GPIO.output(13, False)
         GPIO.output(15, False)
