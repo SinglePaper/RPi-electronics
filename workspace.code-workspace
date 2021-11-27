@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "RPi-electronics",
+			"path": "."
+		},
+		{
+			"name": "2D-plotter",
+			"path": "..\\2D-plotter"
+		}
+	],
+	"settings": {}
+}
