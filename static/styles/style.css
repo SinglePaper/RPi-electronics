@@ -35,8 +35,8 @@ td.up button:focus, td.down button:focus, td.left button:focus, td.right button:
 }
 
 #camera {
-    width: 512px;
-    height: 288px;
+    width: 800px;
+    height: 600px;
     border-radius:20px;
     border:none;
 }
