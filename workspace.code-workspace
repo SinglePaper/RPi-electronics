@@ -1,12 +1,13 @@
 {
 	"folders": [
 		{
-			"name": "RPi-electronics",
 			"path": "."
 		},
 		{
-			"name": "2D-plotter",
-			"path": "..\\2D-plotter"
+			"path": "..\\..\\tfjs"
+		},
+		{
+			"path": "S:\\PWS_Object_Detection\\Python Examples"
 		}
 	],
 	"settings": {}
