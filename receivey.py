@@ -99,11 +99,15 @@ speed = 0
 #  1 2 3
 ##
 def reset_after_AI():
+    global speed
+    global direction
     time.sleep(0.1)
     GPIO.output(16, False)
     GPIO.output(11, False)
     GPIO.output(13, False)
     GPIO.output(15, False)
+    speed = 0
+    direction = 0
     system('clear')
     print("\n=======Controls=======")
     print("Direction: ", direction)
@@ -111,6 +115,8 @@ def reset_after_AI():
 
 @app.route('/receiver', methods = ['POST'])
 def receiver():
+    global speed
+    global direction
     # read json + reply
     data = request.get_json(force=True)  # Get the json and turn it into a normal dict, ignore any mistakes that i made using force=True :wink:
     # Extract the data from data into global variables to use to control the motor

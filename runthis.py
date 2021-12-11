@@ -85,8 +85,11 @@ cap = cv2.VideoCapture("http://192.168.2.64:8080/stream/video.mjpeg")
 # * Print out `detections['detection_boxes']` and try to match the box locations to the boxes in the image.  Notice that coordinates are given in normalized form (i.e., in the interval [0, 1]).
 # * Set ``min_score_thresh`` to other values (between 0 and 1) to allow more detections in or to filter out more detections.
 import numpy as np
+from time import time,sleep
 from math import floor
-
+import requests
+from json import dumps
+last_update = time() +30
 while True:
     # Read frame from camera
     ret, frame = cap.read()
@@ -128,16 +131,27 @@ while True:
     #print(img.shape)
     #print(center)
     #
-    if abs(center[0]-0.5)>0.1:
-        color = (0,0,255)
-        if center[0]>0.5:
-            print("right")
-        elif center[0]<0.5:
-            print("left")
-    else:
-        color = (0,128,0)
+
     #print(detections['detection_scores'][0][0].numpy())
     if detections['detection_scores'][0][0].numpy()>MIN_SCORE_THRESHOLD:
+        if abs(center[0]-0.5)>0.1:
+            color = (0,0,255)
+            if center[0]>0.5:
+                if last_update + 5 < time():
+                    url = 'http://charlie.local/receiver'
+                    myobj = {"direction": 3, "speed": 1}
+                    data = dumps(myobj)
+                    x = requests.post(url, json = data)
+                #print("right")
+            elif center[0]<0.5:
+                if last_update + 5 < time():
+                    url = 'http://charlie.local/receiver'
+                    myobj = {"direction": 1, "speed": 1}
+                    data = dumps(myobj)
+                    x = requests.post(url, json = data)
+                #print("left")
+        else:
+            color = (0,128,0)
         cv2.circle(image_np_with_detections,(floor(center[0]*frame.shape[1]),floor(center[1]*frame.shape[0])),5,color,-1)
     cv2.imshow('object detection',  cv2.resize(image_np_with_detections, (800, 600)))
 
