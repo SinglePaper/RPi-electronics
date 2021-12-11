@@ -105,7 +105,8 @@ def receiver():
     # read json + reply
     data = request.get_json(force=True)  # Get the json and turn it into a normal dict, ignore any mistakes that i made using force=True :wink:
     # Extract the data from data into global variables to use to control the motor
-    print(data[0])
+    if type(data) == str:
+        data = json.loads(data)
     direction = data['direction']
     speed = data['speed']
 
