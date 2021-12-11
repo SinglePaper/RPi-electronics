@@ -2,7 +2,7 @@ function resizeIframe(obj) {
     obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
 }
 
-var data = {"direction": 0, "speed": 0}
+var data = {"direction": 0, "speed": 0, "AI": 0}
 
 autoDrive = false;
 

@@ -98,7 +98,16 @@ speed = 0
 #    0
 #  1 2 3
 ##
-
+def reset_after_AI():
+    time.sleep(0.1)
+    GPIO.output(16, False)
+    GPIO.output(11, False)
+    GPIO.output(13, False)
+    GPIO.output(15, False)
+    system('clear')
+    print("\n=======Controls=======")
+    print("Direction: ", direction)
+    print("Speed: ", speed)
 
 @app.route('/receiver', methods = ['POST'])
 def receiver():
@@ -109,6 +118,7 @@ def receiver():
         data = json.loads(data)
     direction = data['direction']
     speed = data['speed']
+    AI = data['AI']
 
     if direction == 0:  # Forward
         GPIO.output(16, True)
@@ -143,7 +153,7 @@ def receiver():
         GPIO.output(15, False)
     
     # Speed can be implemented by repeatedly turning the motors on and off on given intervals, but can't be bothered to do that right now.
-
+    if AI: reset_after_AI()
     # Print out some debugging tools and make it look pretty :)
     system('clear')
     print("\n=======Controls=======")
