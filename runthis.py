@@ -67,7 +67,8 @@ category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABE
 import cv2
 
 # cap = cv2.VideoCapture(1) 
-cap = cv2.VideoCapture("http://192.168.2.64:8080/stream/video.mjpeg") 
+videocaputure_url = "http://192.168.2.64:8080/stream/video.mjpeg"
+cap = cv2.VideoCapture(videocaputure_url) 
 
 # %%
 # Putting everything together
@@ -89,7 +90,10 @@ from time import time,sleep
 from math import floor
 import requests
 from json import dumps
-last_update = time() +30
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
+last_update = time() +15
+
 while True:
     # Read frame from camera
     ret, frame = cap.read()
@@ -136,20 +140,27 @@ while True:
     if detections['detection_scores'][0][0].numpy()>MIN_SCORE_THRESHOLD:
         if abs(center[0]-0.5)>0.1:
             color = (0,0,255)
+            s = requests.Session()
+            retry = Retry(connect = 5, backoff_factor = 1)
+            adapter = HTTPAdapter(max_retries = retry)
+            s.mount('http://', adapter)
+            s.keep_alive = False
             if center[0]>0.5:
-                if last_update + 5 < time():
+                if last_update + 30 < time():
                     url = 'http://charlie.local/receiver'
-                    myobj = {"direction": 3, "speed": 1}
+                    myobj = {"direction": 3, "speed": 1, "AI": 1}
                     data = dumps(myobj)
-                    x = requests.post(url, json = data)
-                #print("right")
+                    x = s.post(url, json = data)
+                    print("right")
             elif center[0]<0.5:
-                if last_update + 5 < time():
+                if last_update + 30 < time():
                     url = 'http://charlie.local/receiver'
-                    myobj = {"direction": 1, "speed": 1}
+                    myobj = {"direction": 1, "speed": 1, "AI": 1}
                     data = dumps(myobj)
-                    x = requests.post(url, json = data)
-                #print("left")
+                    x = s.post(url, json = data)
+                    print("left")
+            cap.release()
+            cap = cv2.VideoCapture(videocaputure_url) 
         else:
             color = (0,128,0)
         cv2.circle(image_np_with_detections,(floor(center[0]*frame.shape[1]),floor(center[1]*frame.shape[0])),5,color,-1)
