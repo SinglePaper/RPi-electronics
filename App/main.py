@@ -82,7 +82,7 @@ class Main(MDApp):
         button.icon = "cellphone_cog"
         label = self.root.ids.txt
         try:
-            self.s.connect(("192.168.2.64", 5432))
+            self.s.connect(("LOCAL IP", 5432))
             label.text = "Socket successfully connected!"
             button.icon = "cellphone-sound"
         except:
@@ -105,7 +105,7 @@ class Main(MDApp):
     def update_cam(self, *kwargs):
         cam_view = self.root.ids.cam
         #cam_view.source = "http://charlie.local:12345/cam_pic_new.php"
-        #cam_view.source = 'http://192.168.2.64:12345/cam_pic.php?time=' + str(floor(time() * 1000))
+        #cam_view.source = 'http://LOCAL_IP:12345/cam_pic.php?time=' + str(floor(time() * 1000))
 
     def build(self):
         return Builder.load_string(kv)
